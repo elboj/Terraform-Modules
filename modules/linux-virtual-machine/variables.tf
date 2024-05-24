@@ -1,7 +1,7 @@
 variable "module_version" {
   type = string
   validation {
-    condition = var.module_version == "0.1.0"
+    condition = var.module_version == "0.1.1"
     error_message = "Module version mismatch. Verify you are using latest version"
   }
 }
