@@ -1,0 +1,23 @@
+# Local .terraform directories
+**/.terraform/*
+
+#Ignore lock file
+**/.terraform.*
+./modules/linux-virtual-machine/.terraform.lock.hcl
+
+#Ignore state file
+**/terraform.tfstate
+**/terraform.tfstate.*
+
+# Ignore variables files
+*.auto.tfvars
+
+# Ignore override files
+*.tfoverride
+
+# Ignore environment-specific files
+.envrc
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc

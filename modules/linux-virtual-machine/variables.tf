@@ -1,11 +1,19 @@
+variable "module_version" {
+  type = string
+  validation {
+    condition = var.module_version == "0.1.0"
+    error_message = "Module version mismatch. Verify you are using latest version"
+  }
+}
+
 variable "resource_group_name" {
   description = "RG name"
-  # default = "rg-uks-gen-dev001"
+  default = "rg-uks-gen-dev001"
 }
 
 variable "location" {
   description = "RG location"
-  # default = "UK South"
+  default = "UK South"
 }
 
 variable "virtual_network_name" {
@@ -52,4 +60,3 @@ variable "admin_password" {
   description = "admin_password"
   # default = "__VM_PASSWORD__"
 }
-
