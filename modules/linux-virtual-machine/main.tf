@@ -83,11 +83,6 @@ resource "azurerm_linux_virtual_machine" "example" {
     storage_account_type = "Standard_LRS"
   }
 
-  # admin_ssh_key {
-  #   username   = var.admin_username
-  #   public_key = file("__SSH_PUBLIC_KEY__")
-  # }
-
   source_image_reference {
     publisher = "Canonical"
     offer     = "0001-com-ubuntu-server-jammy"
