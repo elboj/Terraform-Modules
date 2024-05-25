@@ -123,8 +123,8 @@ resource "azurerm_network_interface_security_group_association" "nsg_association
 #CREATE MANAGED DISK
 resource "azurerm_managed_disk" "managed_disk" {
   name                 = var.managed_disk_name
-  location             = azurerm_resource_group.example.location
-  resource_group_name  = azurerm_resource_group.example.name
+  location             = azurerm_resource_group.resoure_group.location
+  resource_group_name  = azurerm_resource_group.resoure_group.name
   storage_account_type = var.storage_account_type
   create_option        = "Empty"
   disk_size_gb         = var.disk_size_gb
