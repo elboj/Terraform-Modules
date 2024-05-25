@@ -36,6 +36,11 @@ variable "ip_config" {
   # default = "ip_config"
 }
 
+variable "domain_name_label" {
+  description = "domain_name_label"
+  # default = "ip_config"
+}
+
 variable "vm_public_ip" {
   description = "vm_public_ip"
   # default = "pip-uks-gen-dev001"
@@ -59,4 +64,19 @@ variable "admin_username" {
 variable "admin_password" {
   description = "admin_password"
   # default = "__VM_PASSWORD__"
+}
+
+variable "storage_account_type"{
+  description = "storage_account_type"
+  # default = "storage_account_type"
+}
+
+variable "disk_size_gb"{
+  description = "disk_size_gb"
+  # default = "disk_size_gb"
+}
+
+variable "managed_disk_name" {
+  description = "managed_disk_name"
+  # default = "managed_disk_name"
 }

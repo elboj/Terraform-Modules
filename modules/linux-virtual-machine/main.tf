@@ -48,7 +48,8 @@ resource "azurerm_public_ip" "public_ip" {
   name                =  var.vm_public_ip
   location            =  azurerm_resource_group.resoure_group.location
   resource_group_name =  azurerm_resource_group.resoure_group.name
-  allocation_method   = "Dynamic"
+  domain_name_label =    var.domain_name_label
+  allocation_method   = "Static"
 }
 
 #CREATE NIC
@@ -66,7 +67,7 @@ resource "azurerm_network_interface" "network_interface" {
 }
 
 #CREATE LINUX VM
-resource "azurerm_linux_virtual_machine" "example" {
+resource "azurerm_linux_virtual_machine" "linux_virtual_machine" {
   name                = var.vm_name
   resource_group_name = azurerm_resource_group.resoure_group.name
   location            = azurerm_resource_group.resoure_group.location
@@ -117,4 +118,21 @@ resource "azurerm_network_security_group" "network_security_group" {
 resource "azurerm_network_interface_security_group_association" "nsg_association" {
   network_interface_id      = azurerm_network_interface.network_interface.id
   network_security_group_id = azurerm_network_security_group.network_security_group.id
+}
+
+#CREATE MANAGED DISK
+resource "azurerm_managed_disk" "managed_disk" {
+  name                 = var.managed_disk_name
+  location             = azurerm_resource_group.example.location
+  resource_group_name  = azurerm_resource_group.example.name
+  storage_account_type = var.storage_account_type
+  create_option        = "Empty"
+  disk_size_gb         = var.disk_size_gb
+}
+
+resource "azurerm_virtual_machine_data_disk_attachment" "disk_attachment" {
+  managed_disk_id    = azurerm_managed_disk.managed_disk.id
+  virtual_machine_id = azurerm_linux_virtual_machine.linux_virtual_machine.id
+  lun                = "10"
+  caching            = "ReadWrite"
 }
