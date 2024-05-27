@@ -1,7 +1,7 @@
 locals {
   nsg = {
     "allow_ssh" = {
-        name                       = "SSH"
+        name                       = "allow_SSH"
         direction                  = "Inbound"
         access                     = "Allow"
         protocol                   = "Tcp"
@@ -11,7 +11,7 @@ locals {
         destination_address_prefix = "*"
     },
     "allow_http" = {
-        name                       = "http"
+        name                       = "allow_http"
         direction                  = "Inbound"
         access                     = "Allow"
         protocol                   = "Tcp"
@@ -21,12 +21,22 @@ locals {
         destination_address_prefix = "*"
     },
     "allow_https" = {
-        name                       = "https"
+        name                       = "allow_https"
         direction                  = "Inbound"
         access                     = "Allow"
         protocol                   = "Tcp"
         source_port_range          = "*"
         destination_port_range     = "443"
+        source_address_prefix      = "*"
+        destination_address_prefix = "*"
+    }
+    "allow_jenkins" = {
+        name                       = "allow_jenkins"
+        direction                  = "Inbound"
+        access                     = "Allow"
+        protocol                   = "Tcp"
+        source_port_range          = "*"
+        destination_port_range     = "8081"
         source_address_prefix      = "*"
         destination_address_prefix = "*"
     }
