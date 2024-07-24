@@ -1,16 +1,16 @@
-# terraform {
-#   required_providers {
-#     azurerm = {
-#       source = "hashicorp/azurerm"
-#       version = "3.88.0"
-#     }
-#   }
-# }
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "3.88.0"
+    }
+  }
+}
 
-# provider "azurerm" {
-#   # Configuration options
-#   features{}
-# }
+provider "azurerm" {
+  # Configuration options
+  features{}
+}
 
 resource "azurerm_virtual_network" "virtual_network" {
   name = var.virtual_network_name
