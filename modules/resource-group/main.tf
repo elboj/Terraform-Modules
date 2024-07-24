@@ -25,5 +25,9 @@ resource "azurerm_resource_group" "resource_group" {
   tags = var.tags
 }
 
+output "name" {
+  value = azurerm_resource_group.resource_group.location
+}
+
 #using dynamic and for each. Can I create multiple resource groups in
 #different locations?
